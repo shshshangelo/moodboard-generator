@@ -1,3 +1,14 @@
+/* Base Layout */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 /* Default Light Mode Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -22,12 +33,13 @@ button:hover {
   background-color: #0056b3;
 }
 
-#result h2, #result p {
+#result h2,
+#result p {
   color: #333;
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  /* Dark Mode Styles */
   body {
     background-color: #121212;
     color: #f0f0f0;
@@ -48,7 +60,13 @@ button:hover {
     background-color: #888;
   }
 
-  #result h2, #result p {
+  #result h2,
+  #result p {
+    color: #f0f0f0;
+  }
+
+  footer {
+    background-color: #343a40;
     color: #f0f0f0;
   }
 }
@@ -126,8 +144,8 @@ button:hover {
 
 /* Footer */
 footer {
-  background-color: #f8f9fa; /* Light mode background */
-  color: #6c757d; /* Light mode text (same as text-muted) */
+  background-color: inherit; /* Let body bg decide light/dark mode */
+  color: inherit;
   padding: 2rem 0;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -138,8 +156,14 @@ footer p {
 }
 
 @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+
   footer {
-    background-color: #343a40; /* Dark mode background */
-    color: #f0f0f0; /* Dark mode text */
+    background-color: #121212; /* Match body background */
+    color: #f0f0f0;
   }
 }
+
